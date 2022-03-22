@@ -2,10 +2,10 @@ import React from "react";
 
 const adStyle = {
   backgroundColor: "#b4a7d6",
-  height: "100px",
-  width: "100%",
+  height: "120px",
+  width: "660px",
   border: "1px solid black",
-  margin: "20px",
+  margin: "10px",
 };
 
 const Advertisement = () => {

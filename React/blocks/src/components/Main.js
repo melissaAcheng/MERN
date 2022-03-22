@@ -3,12 +3,11 @@ import React from "react";
 const mainStyle = {
   backgroundColor: "#e06666",
   height: "400px",
-  width: "70%",
+  width: "700px",
   border: "1px solid black",
-  display: "flex",
-  flexWrap: "wrap",
-  margin: "5px",
-  justifyContent: "space-evenly",
+  display: "inline-block",
+  verticalAlign: "top",
+  padding: "10px",
 };
 
 const Main = (props) => {

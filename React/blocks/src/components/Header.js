@@ -3,9 +3,8 @@ import React from "react";
 const headerStyle = {
   backgroundColor: "#6aa84f",
   height: "150px",
-  width: "100%",
   border: "1px solid black",
-  margin: "5px",
+  marginBottom: "20px",
 };
 
 const Header = () => {

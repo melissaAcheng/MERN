@@ -1,8 +1,7 @@
 .App {
-  margin: 0px;
-  height: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  margin: 0px auto;
+  width: 950px;
+  padding: 20px;
 }
 
 .App-logo {
