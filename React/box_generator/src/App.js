@@ -4,19 +4,17 @@ import BoxDisplay from "./components/BoxDisplay";
 import BoxForm from "./components/BoxForm";
 
 const App = () => {
-  const [curColor, setCurColor] = useState([]);
+  const [boxArray, setBoxArray] = useState([]);
 
-  const boxColor = (newColor) => {
-    setCurColor(newColor);
+  // const box = (newBox) => {
+  //   setBoxArray(newBox);
+  // };
+
+  const handleAddBox = (newBox) => {
+    const newBoxArray = [...boxArray, newBox];
+    setBoxArray(newBoxArray);
+    console.log(newBoxArray);
   };
-
-  const handleAddColor = (newColor) => {
-    const newColorArray = [...curColor, newColor];
-    setCurColor(newColorArray);
-    console.log(newColorArray);
-  };
-
-  console.log(curColor);
 
   const divStyle = {
     display: "flex",
@@ -26,13 +24,13 @@ const App = () => {
 
   return (
     <div className="App">
-      <BoxForm newColor={boxColor} handleSubmit={handleAddColor} />
-      {/* <BoxDisplay colorArray={curColor} /> */}
-      <div style={divStyle}>
-        {curColor.map((color, index) => (
-          <BoxDisplay color={color} key={index} />
+      <BoxForm onNewBox={handleAddBox} />
+      <BoxDisplay boxes={boxArray} />
+      {/* <div style={divStyle}>
+        {boxArray.map((color, size, index) => (
+          <BoxDisplay color={color} size={size} key={index} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

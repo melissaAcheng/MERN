@@ -2,21 +2,30 @@ import React, { useState } from "react";
 
 const BoxForm = (props) => {
   const [color, setColor] = useState("");
+  const [size, setSize] = useState(10);
 
-  const handleChange = (e) => setColor(e.target.value);
+  const handleColor = (e) => setColor(e.target.value);
+  const handleSize = (e) => setSize(e.target.value);
 
-  const handleNewColor = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(color);
-    props.handleSubmit(color);
+    const newBox = {
+      color,
+      size,
+    };
+    props.onNewBox(newBox);
+    console.log(newBox);
     setColor("");
+    setSize(10);
   };
 
   return (
-    <form onSubmit={handleNewColor}>
+    <form onSubmit={handleSubmit}>
       <div>
         <label>Color:</label>
-        <input type="text" onChange={handleChange} value={color} />
+        <input type="text" onChange={handleColor} value={color} />
+        <label>Size:</label>
+        <input type="text" onChange={handleSize} value={size} />
         <input type="submit" value="Add" />
       </div>
     </form>
