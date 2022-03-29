@@ -1,26 +1,25 @@
 import "./App.css";
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 const App = () => {
   const [state, setState] = useState(0);
 
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=807")
+    axios
+      .get("https://pokeapi.co/api/v2/pokemon?limit=807")
       .then((response) => {
-        return response.json();
+        setState(response.data.results);
+        console.log(response.data.results);
       })
-      .then((response) => {
-        setState({
-          name: response.results,
-        });
-      });
+      .catch((err) => console.log(err));
   }, []);
   return (
     <div>
       <ul>
-        {state.name
-          ? state.name.map((item, index) => {
-              return <li key={index}>{item.name}</li>;
+        {state
+          ? state.map((pokemon, index) => {
+              return <li key={index}>{pokemon.name}</li>;
             })
           : null}
       </ul>
